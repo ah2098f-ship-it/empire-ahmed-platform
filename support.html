@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎧 الدعم والبوت الذكي - إمبراطورية أحمد</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="support-page">
+    <!-- شريط الحماية -->
+    <div class="security-bar animated-border">
+        <i class="fas fa-shield-alt"></i>
+        <span>🤖 بوت ذكي 24/7 لحل مشاكلك فوراً</span>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">👑</div>
+            <h3>الإمبراطورية</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+            <a href="orders.html" class="nav-item"><i class="fas fa-shopping-bag"></i><span>الطلبات</span></a>
+            <a href="services.html" class="nav-item"><i class="fas fa-layer-group"></i><span>الخدمات</span></a>
+            <a href="wallet.html" class="nav-item"><i class="fas fa-wallet"></i><span>المحفظة</span></a>
+            <a href="suppliers.html" class="nav-item"><i class="fas fa-users"></i><span>الموردين</span></a>
+            <a href="support.html" class="nav-item active"><i class="fas fa-headset"></i><span>الدعم</span></a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="dashboard-content">
+            <h1 class="glowing-text">🎧 مركز الدعم والبوت الذكي</h1>
+
+            <!-- Chat Interface -->
+            <div class="support-container">
+                <div class="chat-box">
+                    <div class="chat-header">
+                        <div class="bot-info">
+                            <i class="fas fa-robot"></i>
+                            <span>البوت الذكي - إمبراطورية أحمد</span>
+                        </div>
+                        <div class="chat-status">🟢 متصل</div>
+                    </div>
+
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                <p>👋 مرحباً! أنا البوت الذكي لإمبراطورية أحمد</p>
+                                <p>كيف يمكنني مساعدتك اليوم؟</p>
+                                <div class="quick-replies">
+                                    <button class="quick-btn" onclick="sendMessage('كيفية الطلب')">كيفية الطلب</button>
+                                    <button class="quick-btn" onclick="sendMessage('مشاكل الطلب')">مشاكل الطلب</button>
+                                    <button class="quick-btn" onclick="sendMessage('السحب والتحويل')">السحب والتحويل</button>
+                                    <button class="quick-btn" onclick="sendMessage('الأسعار')">الأسعار</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="اكتب سؤالك هنا...">
+                        <button onclick="sendUserMessage()"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+
+                <!-- FAQ Sidebar -->
+                <aside class="faq-sidebar">
+                    <h3>❓ الأسئلة الشائعة</h3>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <h4>كيف أطلب خدمة؟</h4>
+                            <p>اذهب لقسم الخدمات واختر الخدمة التي تريدها ثم أدخل البيانات المطلوبة</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>هل الأموال محمية؟</h4>
+                            <p>نعم! جميع المعاملات محمية بتشفير 256-bit وآمنة 100%</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>كم مدة السحب؟</h4>
+                            <p>السحب يتم خلال 24 ساعة على الأكثر بعد الموافقة</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>ما هي رسوم السحب؟</h4>
+                            <p>رسوم السحب 2,500 دينار من كل طلب سحب</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>هل يوجد ضمان؟</h4>
+                            <p>نعم! جميع الخدمات عليها ضمان من 7 أيام إلى مدى الحياة</p>
+                        </div>
+                        <div class="faq-item">
+                            <h4>كيف أتواصل مع الدعم؟</h4>
+                            <p>يمكنك التواصل عبر البوت أو Telegram أو WhatsApp 24/7</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Support Tickets -->
+            <h2>🎫 تذاكر الدعم</h2>
+            <div class="tickets-section">
+                <button class="btn btn-primary" onclick="createTicket()">📝 فتح تذكرة دعم جديدة</button>
+                <table class="tickets-table">
+                    <thead>
+                        <tr>
+                            <th>رقم التذكرة</th>
+                            <th>الموضوع</th>
+                            <th>الحالة</th>
+                            <th>التاريخ</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#TK001</td>
+                            <td>مشكلة في الطلب #1004</td>
+                            <td><span class="status pending">⏳ قيد الرد</span></td>
+                            <td>2026-06-15</td>
+                            <td><button class="btn btn-secondary">اعرض</button></td>
+                        </tr>
+                        <tr>
+                            <td>#TK000</td>
+                            <td>استفسار عن السحب</td>
+                            <td><span class="status completed">✅ مغلقة</span></td>
+                            <td>2026-06-14</td>
+                            <td><button class="btn btn-secondary">اعرض</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function sendMessage(text) {
+            document.getElementById('messageInput').value = text;
+            sendUserMessage();
+        }
+
+        function sendUserMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // User message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'message user-message';
+            userDiv.innerHTML = `<div class="message-content"><p>${message}</p></div>`;
+            chatMessages.appendChild(userDiv);
+
+            input.value = '';
+
+            // Bot response
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'message bot-message';
+                botDiv.innerHTML = `
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <p>شكراً على سؤالك! 😊</p>
+                        <p>هذا ردي التلقائي. للتواصل مع فريق الدعم البشري، يرجى فتح تذكرة دعم.</p>
+                    </div>
+                `;
+                chatMessages.appendChild(botDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 500);
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function createTicket() {
+            alert('سيتم فتح نموذج إنشاء تذكرة دعم جديدة');
+        }
+
+        document.getElementById('messageInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendUserMessage();
+        });
+    </script>
+</body>
+</html>

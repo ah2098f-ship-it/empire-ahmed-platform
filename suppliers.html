@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👥 الموردين VIP - إمبراطورية أحمد</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="suppliers-page">
+    <!-- شريط الحماية -->
+    <div class="security-bar animated-border">
+        <i class="fas fa-shield-alt"></i>
+        <span>👑 منصة الموردين المميزين - خدمات خاصة VIP</span>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">👑</div>
+            <h3>الإمبراطورية</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+            <a href="orders.html" class="nav-item"><i class="fas fa-shopping-bag"></i><span>الطلبات</span></a>
+            <a href="services.html" class="nav-item"><i class="fas fa-layer-group"></i><span>الخدمات</span></a>
+            <a href="wallet.html" class="nav-item"><i class="fas fa-wallet"></i><span>المحفظة</span></a>
+            <a href="suppliers.html" class="nav-item active"><i class="fas fa-users"></i><span>الموردين</span></a>
+            <a href="support.html" class="nav-item"><i class="fas fa-headset"></i><span>الدعم</span></a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="dashboard-content">
+            <h1 class="glowing-text">👑 منصة الموردين المميزين VIP</h1>
+
+            <!-- Supplier Stats -->
+            <div class="supplier-stats">
+                <div class="stat-card">
+                    <h3>إجمالي الموردين</h3>
+                    <p class="stat-value">234</p>
+                </div>
+                <div class="stat-card">
+                    <h3>موردين نشطين</h3>
+                    <p class="stat-value" style="color: #00ff00;">156</p>
+                </div>
+                <div class="stat-card">
+                    <h3>موردين VIP</h3>
+                    <p class="stat-value" style="color: #ffaa00;">45</p>
+                </div>
+                <div class="stat-card">
+                    <h3>إجمالي العمولات المدفوعة</h3>
+                    <p class="stat-value">5.2M ع.د</p>
+                </div>
+            </div>
+
+            <!-- Supplier Management -->
+            <div class="supplier-management">
+                <h2>⚙️ إد��رة الموردين</h2>
+                <button class="btn btn-primary" onclick="addSupplier()">➕ إضافة مورد جديد</button>
+                <button class="btn btn-secondary" onclick="approveRequests()">✅ الموافقة على الطلبات</button>
+                <button class="btn btn-secondary" onclick="manageCommissions()">💰 إدارة العمولات</button>
+            </div>
+
+            <!-- Suppliers Table -->
+            <table class="suppliers-table">
+                <thead>
+                    <tr>
+                        <th>الاسم</th>
+                        <th>البريد</th>
+                        <th>الرتبة</th>
+                        <th>إجمالي الطلبات</th>
+                        <th>الأرباح</th>
+                        <th>حالة التحقق</th>
+                        <th>الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>عثمان الحسن</strong></td>
+                        <td>othman@email.com</td>
+                        <td><span class="tier-badge tier-gold">⭐ ذهبي</span></td>
+                        <td>1,250</td>
+                        <td>15.5M ع.د</td>
+                        <td><span class="status completed">✅ موثق</span></td>
+                        <td>
+                            <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                            <button class="btn-icon"><i class="fas fa-chart-bar"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>فاطمة علي</strong></td>
+                        <td>fatima@email.com</td>
+                        <td><span class="tier-badge tier-silver">⭐ فضي</span></td>
+                        <td>856</td>
+                        <td>8.2M ع.د</td>
+                        <td><span class="status completed">✅ موثق</span></td>
+                        <td>
+                            <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                            <button class="btn-icon"><i class="fas fa-chart-bar"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>محمود خالد</strong></td>
+                        <td>mahmoud@email.com</td>
+                        <td><span class="tier-badge tier-bronze">⭐ برونزي</span></td>
+                        <td>432</td>
+                        <td>3.1M ع.د</td>
+                        <td><span class="status pending">⏳ قيد التحقق</span></td>
+                        <td>
+                            <button class="btn-icon"><i class="fas fa-check"></i></button>
+                            <button class="btn-icon"><i class="fas fa-times"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- VIP Benefits -->
+            <h2>💎 مميزات برنامج VIP</h2>
+            <div class="vip-benefits">
+                <div class="benefit-card">
+                    <h3>📊 لوحة تحكم متقدمة</h3>
+                    <p>تقارير مفصلة وإحصائيات فورية لكل الطلبات والأرباح</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🚀 أولويات عالية</h3>
+                    <p>معالجة أسرع للطلبات وأولوية في المتابعة</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>💰 عمولات أعلى</h3>
+                    <p>عمولة 20% بدل 25% مع حد أدنى للسحب</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>👤 مدير حساب شخصي</h3>
+                    <p>تواصل مباشر مع مدير حسابك الخاص</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🎁 مكافآت إضافية</h3>
+                    <p>حوافز شهرية وبونص أداء للموردين المتميزين</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🔌 API مخصصة</h3>
+                    <p>ربط مباشر مع الموقع وتكامل كامل</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function addSupplier() {
+            alert('سيتم فتح نموذج إضافة مورد جديد');
+        }
+
+        function approveRequests() {
+            alert('عرض الطلبات المعلقة للموافقة عليها');
+        }
+
+        function manageCommissions() {
+            alert('إدارة نسب العمولات والحوافز');
+        }
+    </script>
+</body>
+</html>

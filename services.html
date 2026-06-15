@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛍️ الخدمات - إمبراطورية أحمد</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="services-page">
+    <!-- شريط الحماية -->
+    <div class="security-bar animated-border">
+        <i class="fas fa-shield-alt"></i>
+        <span>🔒 تصفح آمن | خدمات موثوقة من JAP</span>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">👑</div>
+            <h3>الإمبراطورية</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+            <a href="orders.html" class="nav-item"><i class="fas fa-shopping-bag"></i><span>الطلبات</span></a>
+            <a href="services.html" class="nav-item active"><i class="fas fa-layer-group"></i><span>الخدمات</span></a>
+            <a href="wallet.html" class="nav-item"><i class="fas fa-wallet"></i><span>المحفظة</span></a>
+            <a href="suppliers.html" class="nav-item"><i class="fas fa-users"></i><span>الموردين</span></a>
+            <a href="support.html" class="nav-item"><i class="fas fa-headset"></i><span>الدعم</span></a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="top-bar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchServices" placeholder="ابحث عن خدمة...">
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <h1 class="glowing-text">🎯 اختر الخدمة التي تريدها</h1>
+            <p>1000+ خدمة من JAP API متاحة للآن</p>
+
+            <!-- Platform Filters -->
+            <div class="platform-filters">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="telegram">📱 تيليجرام</button>
+                <button class="filter-btn" data-filter="instagram">📸 إنستجرام</button>
+                <button class="filter-btn" data-filter="tiktok">🎵 تيك توك</button>
+                <button class="filter-btn" data-filter="facebook">👥 فيسبوك</button>
+                <button class="filter-btn" data-filter="youtube">🎬 يوتيوب</button>
+            </div>
+
+            <!-- Service Type Tabs -->
+            <div class="service-tabs">
+                <button class="tab-btn active" data-tab="fast">⚡ خدمات سريعة</button>
+                <button class="tab-btn" data-tab="medium">⏱️ خدمات متوسطة</button>
+                <button class="tab-btn" data-tab="slow">🐢 خدمات بطيئة</button>
+                <button class="tab-btn" data-tab="vip">👑 خدمات VIP</button>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-grid" id="servicesContainer">
+                <!-- Services will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="serviceTitle">تفاصيل الخدمة</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="service-details">
+                    <p><strong>الخدمة:</strong> <span id="modalServiceName"></span></p>
+                    <p><strong>المنصة:</strong> <span id="modalPlatform"></span></p>
+                    <p><strong>السعر:</strong> <span id="modalPrice"></span> عراقي</p>
+                    <p><strong>الضمان:</strong> <span id="modalWarranty"></span></p>
+                </div>
+                <div class="form-group">
+                    <label>الكمية:</label>
+                    <input type="number" id="quantity" min="1" value="1" placeholder="أدخل الكمية">
+                </div>
+                <div class="form-group">
+                    <label>الرابط أو المعرّف:</label>
+                    <input type="text" id="link" placeholder="أدخل الحساب أو الرابط">
+                </div>
+                <div class="price-calculation">
+                    <p>السعر الإجمالي: <strong id="totalPrice">0</strong> عراقي</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">إلغاء</button>
+                <button class="btn btn-primary" onclick="placeOrder()">تأكيد الطلب</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        const services = [
+            { id: 1, name: 'متابعين تيليجرام', platform: 'telegram', price: 500, type: 'fast', warranty: '30 يوم', icon: '📱', color: '#0088cc' },
+            { id: 2, name: 'لايكات إنستجرام', platform: 'instagram', price: 1000, type: 'fast', warranty: 'مدى الحياة', icon: '📸', color: '#E1306C' },
+            { id: 3, name: 'مشاهدات تيك توك', platform: 'tiktok', price: 750, type: 'medium', warranty: '30 يوم', icon: '🎵', color: '#000000' },
+            { id: 4, name: 'متفاعلين فيسبوك', platform: 'facebook', price: 2000, type: 'slow', warranty: 'بدون', icon: '👥', color: '#1877F2' },
+            { id: 5, name: 'مشتركين يوتيوب', platform: 'youtube', price: 5000, type: 'vip', warranty: 'مدى الحياة', icon: '🎬', color: '#FF0000' },
+            { id: 6, name: 'تعليقات تيليجرام', platform: 'telegram', price: 300, type: 'fast', warranty: '7 أيام', icon: '📱', color: '#0088cc' },
+        ];
+
+        function renderServices(filter = 'all', type = 'fast') {
+            const container = document.getElementById('servicesContainer');
+            container.innerHTML = '';
+            
+            let filtered = services.filter(s => {
+                if (filter !== 'all' && s.platform !== filter) return false;
+                if (type !== 'all' && s.type !== type) return false;
+                return true;
+            });
+
+            filtered.forEach(service => {
+                const card = document.createElement('div');
+                card.className = 'service-card glow-effect';
+                card.style.borderColor = service.color;
+                card.innerHTML = `
+                    <div class="service-icon" style="background: ${service.color}22; color: ${service.color};">${service.icon}</div>
+                    <h3>${service.name}</h3>
+                    <p class="platform-tag">${service.platform}</p>
+                    <div class="price-section">
+                        <p class="price">${service.price.toLocaleString()} عراقي</p>
+                        <p class="warranty">✅ ${service.warranty}</p>
+                    </div>
+                    <button class="btn btn-primary btn-block" onclick="openOrderModal(${service.id})">اطلب الآن</button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function openOrderModal(serviceId) {
+            const service = services.find(s => s.id === serviceId);
+            document.getElementById('serviceTitle').textContent = service.name;
+            document.getElementById('modalServiceName').textContent = service.name;
+            document.getElementById('modalPlatform').textContent = service.platform;
+            document.getElementById('modalPrice').textContent = service.price.toLocaleString();
+            document.getElementById('modalWarranty').textContent = service.warranty;
+            document.getElementById('quantity').value = 1;
+            document.getElementById('totalPrice').textContent = service.price.toLocaleString();
+            document.getElementById('orderModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        function placeOrder() {
+            alert('تم إرسال الطلب بنجاح! ✅');
+            closeModal();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderServices();
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    const filter = e.target.dataset.filter;
+                    const type = document.querySelector('.tab-btn.active').dataset.tab;
+                    renderServices(filter, type);
+                });
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    const filter = document.querySelector('.filter-btn.active').dataset.filter;
+                    const type = e.target.dataset.tab;
+                    renderServices(filter, type);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
