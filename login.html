@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 تسجيل الدخول - إمبراطورية أحمد</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-page">
+    <!-- شريط الحماية -->
+    <div class="security-bar animated-border">
+        <i class="fas fa-shield-alt"></i>
+        <span>🔒 اتصالك محمي بتشفير 256-bit</span>
+    </div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo-icon">👑</div>
+                <h1>إمبراطورية أحمد</h1>
+                <p>أول منصة SMM عراقية</p>
+            </div>
+
+            <div class="tabs-container">
+                <button class="tab-btn active" onclick="switchTab('login')">دخول</button>
+                <button class="tab-btn" onclick="switchTab('register')">تسجيل جديد</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="form-tab active">
+                <div class="form-group">
+                    <label for="loginEmail">البريد الإلكتروني أو اسم المستخدم</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" id="loginEmail" placeholder="أدخل بريدك أو اسمك" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">كلمة المرور</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="أدخل كلمة المرور" required>
+                        <span class="toggle-password" onclick="togglePassword('loginPassword')"><i class="fas fa-eye"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">تذكرني على هذا الجهاز</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large btn-block">
+                    <i class="fas fa-sign-in-alt"></i> دخول آمن
+                </button>
+
+                <div class="or-divider">أو</div>
+
+                <button type="button" class="btn btn-social btn-block">
+                    <i class="fab fa-google"></i> دخول بـ Google
+                </button>
+
+                <div class="login-links">
+                    <a href="#">هل نسيت كلمة المرور؟</a>
+                </div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="form-tab">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">الاسم الأول</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="firstName" placeholder="أحمد" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">الاسم الأخير</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="lastName" placeholder="علي" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="regEmail">البريد الإلكتروني</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="regEmail" placeholder="بريدك@gmail.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف</label>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" placeholder="07xxxxxxxxx" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="regPassword">كلمة المرور</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="regPassword" placeholder="8 أحرف على الأقل" required>
+                    </div>
+                    <small>يجب أن تحتوي على أحرف وأرقام وحروف كبيرة</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="userType">نوع الحساب</label>
+                    <select id="userType" required>
+                        <option value="">-- اختر نوع الحساب --</option>
+                        <option value="customer">عميل (شراء الخدمات)</option>
+                        <option value="supplier">مورد (بيع الخدمات)</option>
+                        <option value="affiliate">موزع (عمولة)</option>
+                    </select>
+                </div>
+
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <label for="agreeTerms">أوافق على شروط الاستخدام</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large btn-block">
+                    <i class="fas fa-user-plus"></i> تسجيل جديد
+                </button>
+            </form>
+        </div>
+
+        <div class="login-benefits">
+            <h3>لماذا الإمبراطورية؟</h3>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>أمان وتشفير 100%</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>سحب فوري وآمن</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>دعم عراقي مباشر</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>أرباح حقيقية وشفافة</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>بوت ذكي 24/7</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>1000+ خدمة متاحة</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.form-tab').forEach(f => f.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            
+            if (tab === 'login') {
+                document.getElementById('loginForm').classList.add('active');
+                event.target.classList.add('active');
+            } else {
+                document.getElementById('registerForm').classList.add('active');
+                event.target.classList.add('active');
+            }
+        }
+
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const type = input.type === 'password' ? 'text' : 'password';
+            input.type = type;
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // التحقق الأساسي
+            if (email && password) {
+                localStorage.setItem('user', JSON.stringify({ email, type: 'customer' }));
+                location.href = 'dashboard.html';
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const userData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('regEmail').value,
+                phone: document.getElementById('phone').value,
+                type: document.getElementById('userType').value,
+                createdAt: new Date().toISOString()
+            };
+            
+            localStorage.setItem('user', JSON.stringify(userData));
+            localStorage.setItem('users', JSON.stringify([userData]));
+            location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>
